@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}History | Stroke Insight{% endblock %}
+{% block content %}
+<p class="eyebrow">LOCAL SESSION RECORDS</p><h1>Prediction <span>history</span></h1>
+<div class="notice">History is stored locally in a JSON file on this computer. Do not enter real patient-identifying information.</div>
+<section class="panel">
+{% if items %}
+<table><thead><tr><th>Date/time</th><th>Age</th><th>Displayed score</th><th>Mode</th></tr></thead><tbody>
+{% for item in items %}<tr><td>{{ item.time }}</td><td>{{ item.age }}</td><td>{{ item.score }}%</td><td>{{ 'Demo' if item.demo else 'Model' }}</td></tr>{% endfor %}
+</tbody></table>
+{% else %}<p>No prediction history yet. Submit an example on the Prediction page first.</p>{% endif %}
+</section>
+{% endblock %}

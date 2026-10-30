@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}About | Stroke Insight{% endblock %}
+{% block content %}
+<p class="eyebrow">ABOUT THE PROJECT</p><h1>Explainable AI for <span>health education</span></h1>
+<section class="panel">
+<h2>Project objective</h2><p>This academic prototype demonstrates a machine-learning workflow, SHAP-based explanations, rule-based educational recommendations, and a Flask interface.</p>
+<h2>Current mode</h2><p>{{ model_status }}</p>
+<h2>Limitations</h2>
+<ul><li>Not clinically validated; not a diagnostic tool.</li><li>Dataset class imbalance can affect recall and precision.</li><li>SHAP describes model behavior, not causal relationships.</li><li>Performance on one dataset may not generalize to other populations.</li><li>Demo mode uses placeholder rules, not a trained ML model.</li></ul>
+</section>
+{% endblock %}

@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Stroke Insight{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="{{ url_for('index') }}">Stroke<span>Insight</span></a>
+  <nav><a href="{{ url_for('index') }}">Prediction</a><a href="{{ url_for('history') }}">History</a><a href="{{ url_for('about') }}">About</a></nav>
+</header>
+<main class="container">
+  {% block content %}{% endblock %}
+</main>
+<footer>Academic prototype only · Not a medical device · Not for diagnosis or treatment decisions</footer>
+</body>
+</html>

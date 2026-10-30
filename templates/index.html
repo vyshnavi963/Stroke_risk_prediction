@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Stroke Insight | Prediction{% endblock %}
+{% block content %}
+<section class="hero">
+  <p class="eyebrow">EXPLAINABLE AI · ACADEMIC PROTOTYPE</p>
+  <h1>Explore stroke-related<br><span>health factors</span></h1>
+  <p class="sub">Enter example health information to explore model behavior and receive general educational recommendations.</p>
+  <div class="status">{{ model_status }}</div>
+</section>
+{% if error %}<div class="alert">{{ error }}</div>{% endif %}
+<div class="notice"><strong>Important:</strong> This tool does not diagnose stroke or provide a clinically validated personal risk estimate. Seek urgent medical help for sudden facial drooping, arm weakness, speech difficulty, or other possible stroke symptoms.</div>
+<form class="panel" method="post" action="{{ url_for('predict') }}">
+  <h2>Health information</h2>
+  <div class="form-grid">
+    <label>Age (years)<input type="number" name="age" min="0" max="120" value="63" required></label>
+    <label>Average glucose level<input type="number" name="glucose" min="0" step="0.01" value="105" required></label>
+    <label>BMI<input type="number" name="bmi" min="0" step="0.1" value="27" required></label>
+    <label>Gender<select name="gender"><option>Female</option><option>Male</option><option>Other</option></select></label>
+    <label>Hypertension<select name="hypertension"><option value="0">No</option><option value="1">Yes</option></select></label>
+    <label>Heart disease<select name="heart_disease"><option value="0">No</option><option value="1">Yes</option></select></label>
+    <label>Ever married?<select name="ever_married"><option>Yes</option><option>No</option></select></label>
+    <label>Work type<select name="work_type"><option>Private</option><option>Self-employed</option><option>Govt_job</option><option>children</option><option>Never_worked</option></select></label>
+    <label>Residence type<select name="Residence_type"><option>Urban</option><option>Rural</option></select></label>
+    <label>Smoking status<select name="smoking_status"><option value="never smoked">Never smoked</option><option value="formerly smoked">Formerly smoked</option><option value="smokes">Currently smokes</option><option value="Unknown">Unknown</option></select></label>
+  </div>
+  <button type="submit">Generate explanation & recommendations</button>
+</form>
+{% endblock %}
